@@ -1,0 +1,12 @@
+xquery version "1.0-ml";
+
+import module namespace aet = "infosys/genNmap" at "/infosys/genNmap/xmlGenAndMap.xqy";
+
+let $xmlData := 'doc("MembershipData.xml")'
+
+let $xmlSchema := doc("MembershipSchema.xsd")/node()
+
+let $xmlMap := doc("MembershipMap.xml")/node()
+
+return aet:getXML($xmlSchema, $xmlMap, $xmlData)
+
