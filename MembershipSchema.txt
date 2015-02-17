@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DemographicRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Status"/>
+        <xs:element ref="memberDemographics"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StatusCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StatusCode" type="xs:integer"/>
+  <xs:element name="memberDemographics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="relationship"/>
+        <xs:element ref="restriction"/>
+        <xs:element ref="enrollmentDate"/>
+        <xs:element ref="terminationDate"/>
+        <xs:element ref="personInfo"/>
+        <xs:element maxOccurs="unbounded" ref="dependentInfo"/>
+        <xs:element ref="membershipsLinks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dependentInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="relationship"/>
+        <xs:element ref="restriction"/>
+        <xs:element ref="enrollmentDate"/>
+        <xs:element ref="terminationDate"/>
+        <xs:element ref="personInfoDependent"/>
+        <xs:element ref="membershipsLinks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="relationship" type="xs:NCName"/>
+  <xs:element name="restriction" type="xs:boolean"/>
+  <xs:element name="enrollmentDate" type="xs:date"/>
+  <xs:element name="terminationDate" type="xs:date"/>
+  <xs:element name="personInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gender"/>
+        <xs:element ref="firstName"/>
+        <xs:element ref="middleName"/>
+        <xs:element ref="lastName"/>
+        <xs:element ref="title"/>
+        <xs:element ref="prefix"/>
+        <xs:element ref="suffix"/>
+        <xs:element ref="fullName"/>
+        <xs:element ref="DOB"/>
+        <xs:element minOccurs="0" ref="contactInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+   <xs:element name="personInfoDependent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="gender"/>
+        <xs:element ref="firstName"/>
+        <xs:element ref="middleName"/>
+        <xs:element ref="lastName"/>
+        <xs:element ref="title"/>
+        <xs:element ref="prefix"/>
+        <xs:element ref="suffix"/>
+        <xs:element ref="fullName"/>
+        <xs:element ref="DOB"/>      
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gender" type="xs:NCName"/>
+  <xs:element name="firstName" type="xs:NCName"/>
+  <xs:element name="middleName" type="xs:string"/>
+  <xs:element name="lastName" type="xs:NCName"/>
+  <xs:element name="title" type="xs:integer"/>
+  <xs:element name="prefix"/>
+  <xs:element name="suffix"/>
+  <xs:element name="fullName" type="xs:string"/>
+  <xs:element name="DOB" type="xs:date"/>
+  <xs:element name="contactInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="usage"/>
+        <xs:element ref="email"/>
+        <xs:element ref="postAddresses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="usage" type="xs:NCName"/>
+  <xs:element name="email">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="domainName"/>
+        <xs:element ref="emailId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="domainName" type="xs:string"/>
+  <xs:element name="emailId" type="xs:string"/>
+  <xs:element name="postAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="state"/>
+        <xs:element ref="city"/>
+        <xs:element ref="postCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="state" type="xs:NCName"/>
+  <xs:element name="city" type="xs:NCName"/>
+  <xs:element name="postCode" type="xs:integer"/>
+  <xs:element name="membershipsLinks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="_a"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="_a">
+    <xs:complexType>
+      <xs:attribute name="accessTokenType" use="required" type="xs:NCName"/>
+      <xs:attribute name="href" use="required" type="xs:anyURI"/>
+      <xs:attribute name="resource" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
