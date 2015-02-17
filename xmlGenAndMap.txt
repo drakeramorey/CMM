@@ -1,0 +1,125 @@
+xquery version "1.0-ml";
+
+module namespace aet = "infosys/genNmap";
+
+declare function aet:escape-for-regex
+  ( $arg as xs:string? )  as xs:string {
+
+   replace($arg,
+           "(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))","\\$1")
+};
+
+declare function aet:getXML($xmlSchema as node(), $xmlMap as node(), $xmlData as xs:string) as document-node()*
+{ 
+   let $schema := $xmlSchema
+   let $xmlFirst := aet:genXML($xmlSchema,$schema)[1]
+   let $xmlBlank := xdmp:quote(aet:add-paths($xmlFirst))
+   let $xmlMapped := aet:map($xmlMap,$xmlData,$xmlBlank)
+   return document { $xmlMapped } 
+};
+
+declare private function aet:genXML($element as node(),$schema as node()) as node()*
+{ 
+    typeswitch ($element)
+        
+        case  element(xs:schema)   return
+              for $sub-element in  $element/*
+                 return  aet:genXML($sub-element,$schema)
+        
+        case element(xs:annotation) return
+              ()
+        
+        case  element(xs:element)   return 
+               let $min := 
+                     if ($element/@minOccurs)
+                     then
+                         ($element/@minOccurs/string())
+                     else 1
+                              
+               let $max := 
+                     if ($element/@maxOccurs)
+                     then
+                         if ($element/@maxOccurs/string() = "unbounded") 
+                         then 5
+                         else ($element/@maxOccurs/string())
+                     else 1
+               let $count := $max
+               return 
+                  if ($count  >0 )
+                  then 
+                      for $i in 1 to $count
+                      return
+                         if ($element/@ref)  
+                         then 
+                              aet:genXML(document{$schema}/xs:schema/xs:element[@name=$element/@ref/string()],$schema)
+                         else if (document{$schema}/xs:schema/xs:complexType[@name=$element/@type]) 
+                         then 
+                             element {$element/@name} { aet:genXML(document{$schema}/xs:schema/xs:complexType[@name=$element/@type/string()],$schema) }                      
+                         else 
+                             element {$element/@name} {       
+                                                         if  ($element/*)
+                                                         then 
+                                                           (                                  
+                                                             for $sub-element in $element/*
+                                                             return aet:genXML($sub-element,$schema)
+                                                           )
+                                                         else()
+                                                        }
+                  else ("ELSE")
+              
+        case element(xs:attribute)   return
+                 if ($element/@use="required" or empty($element/@use))
+                 then 
+                     attribute {$element/@name} {}
+                 else () 
+         
+        case  element(xs:all)   return
+                 for $sub-element  in $element/*
+                 return aet:genXML($sub-element,$schema)
+        
+        case  element(xs:sequence)   return
+                 for $sub-element in $element/*
+                       return aet:genXML($sub-element,$schema)
+        
+        case  element(xs:complexType)   return 
+              for $sub-element in $element/*
+                       return aet:genXML($sub-element,$schema)
+                 
+       default return ("DEFAULT")
+};
+
+declare private function aet:add-paths($xmlFirst as node()) as node()
+{ 
+  let $new := 
+  for $node in $xmlFirst
+  return
+  typeswitch ($node)
+    case element()
+      return element { node-name($node) } 
+      {
+          if ($node/@*)
+          then
+            for $att in $node/@*
+            return attribute { node-name($att) } {xdmp:path($att)}
+          else (),
+          if ($node/node()) then
+            aet:add-paths($node/node())
+          else
+          xdmp:path($node)
+      }
+      
+    default return $node 
+    
+    return $new
+}; 
+
+
+declare private function aet:map($xmlMap as node(), $xmlData as xs:string, $xmlBlank as xs:string) as node()
+{
+  let $new := for $x in $xmlMap/*
+  return xdmp:set($xmlBlank,
+  fn:replace($xmlBlank,aet:escape-for-regex((substring-before($x/text(),"--"))),string(xdmp:eval(fn:concat((fn:concat($xmlData,substring-after($x/text(),"--"))),"/string()")))))
+  
+  return xdmp:eval($xmlBlank)
+ 
+};
