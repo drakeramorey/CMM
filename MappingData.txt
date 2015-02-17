@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetDemographicRes>
+    <Status>
+        <StatusCode>0</StatusCode>
+    </Status>
+    <memberDemographics>
+        <relationshipToSubscriber>I</relationshipToSubscriber>
+        <privacyRestriction>true</privacyRestriction>
+        <dateEnrolled>2007-01-01</dateEnrolled>
+        <dateTerminated>9999-12-31</dateTerminated>
+        <person>
+            <gender>M</gender>
+            <nameFirst>AUSTIN</nameFirst>
+            <nameMiddle>H</nameMiddle>
+            <nameLast>RITCHEY</nameLast>
+            <nameTitle>0</nameTitle>
+            <namePrefix>
+            </namePrefix>
+            <nameSuffix>
+            </nameSuffix>
+            <nameFull>AUSTIN H RITCHEY</nameFull>
+            <dateOfBirth>1968-11-04</dateOfBirth>
+            <contacts>
+                <usage>Email</usage>
+                <emailAddresses>
+                    <domain>A@aetna.com</domain>
+                    <address>RITCHEYA@aetna.com</address>
+                </emailAddresses>
+                <postalAddresses>
+                    <state>NJ</state>
+                    <city>TRENTON</city>
+                    <postalCode>08608</postalCode>
+                </postalAddresses>
+            </contacts>
+        </person>
+        <dependents>
+            <relationshipToSubscriber>S</relationshipToSubscriber>
+            <privacyRestriction>true</privacyRestriction>
+            <dateEnrolled>2007-01-01</dateEnrolled>
+            <dateTerminated>9999-12-31</dateTerminated>
+            <person>
+                <gender>M</gender>
+                <nameFirst>ALBERTO</nameFirst>
+                <nameMiddle>
+                </nameMiddle>
+                <nameLast>RITCHEY</nameLast>
+                <nameTitle>0</nameTitle>
+                <namePrefix>
+                </namePrefix>
+                <nameSuffix>
+                </nameSuffix>
+                <nameFull>ALBERTO RITCHEY</nameFull>
+                <dateOfBirth>2004-05-30</dateOfBirth>
+            </person>
+            <membershipsLinks>
+                <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718660+10+1+20070101+723120+A+1">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718660+10+1+20070101+723120+A+1/identificationcards">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718660+10+1+20070101+723120+A+1/servicebundles">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718660+10+1+20070101+723120+A+1/healthclaims">
+                </_a>
+                <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718660+10+1+20070101+723120+A+1/features">
+                </_a>
+            </membershipsLinks>
+        </dependents>
+        <dependents>
+            <relationshipToSubscriber>W</relationshipToSubscriber>
+            <privacyRestriction>true</privacyRestriction>
+            <dateEnrolled>2007-01-01</dateEnrolled>
+            <dateTerminated>9999-12-31</dateTerminated>
+            <person>
+                <gender>F</gender>
+                <nameFirst>CINDERELLA</nameFirst>
+                <nameMiddle>P</nameMiddle>
+                <nameLast>RITCHEY</nameLast>
+                <nameTitle>0</nameTitle>
+                <namePrefix>
+                </namePrefix>
+                <nameSuffix>
+                </nameSuffix>
+                <nameFull>CINDERELLA P RITCHEY</nameFull>
+                <dateOfBirth>1964-09-26</dateOfBirth>
+            </person>
+            <membershipsLinks>
+                <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718666+10+1+20070101+723120+A+1">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718666+10+1+20070101+723120+A+1/identificationcards">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718666+10+1+20070101+723120+A+1/servicebundles">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718666+10+1+20070101+723120+A+1/healthclaims">
+                </_a>
+                <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718666+10+1+20070101+723120+A+1/features">
+                </_a>
+            </membershipsLinks>
+        </dependents>
+        <dependents>
+            <relationshipToSubscriber>D</relationshipToSubscriber>
+            <privacyRestriction>true</privacyRestriction>
+            <dateEnrolled>2007-01-01</dateEnrolled>
+            <dateTerminated>9999-12-31</dateTerminated>
+            <person>
+                <gender>F</gender>
+                <nameFirst>ELLA</nameFirst>
+                <nameMiddle>
+                </nameMiddle>
+                <nameLast>RITCHEY</nameLast>
+                <nameTitle>0</nameTitle>
+                <namePrefix>
+                </namePrefix>
+                <nameSuffix>
+                </nameSuffix>
+                <nameFull>ELLA RITCHEY</nameFull>
+                <dateOfBirth>1995-07-28</dateOfBirth>
+            </person>
+            <membershipsLinks>
+                <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718661+10+1+20070101+723120+A+1">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718661+10+1+20070101+723120+A+1/identificationcards">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718661+10+1+20070101+723120+A+1/servicebundles">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718661+10+1+20070101+723120+A+1/healthclaims">
+                </_a>
+                <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718661+10+1+20070101+723120+A+1/features">
+                </_a>
+            </membershipsLinks>
+        </dependents>
+        <dependents>
+            <relationshipToSubscriber>D</relationshipToSubscriber>
+            <privacyRestriction>true</privacyRestriction>
+            <dateEnrolled>2007-01-01</dateEnrolled>
+            <dateTerminated>9999-12-31</dateTerminated>
+            <person>
+                <gender>F</gender>
+                <nameFirst>HELEN</nameFirst>
+                <nameMiddle>
+                </nameMiddle>
+                <nameLast>RITCHEY</nameLast>
+                <nameTitle>0</nameTitle>
+                <namePrefix>
+                </namePrefix>
+                <nameSuffix>
+                </nameSuffix>
+                <nameFull>HELEN RITCHEY</nameFull>
+                <dateOfBirth>1998-06-29</dateOfBirth>
+            </person>
+            <membershipsLinks>
+                <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718670+10+1+20070101+723120+A+1">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718670+10+1+20070101+723120+A+1/identificationcards">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718670+10+1+20070101+723120+A+1/servicebundles">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718670+10+1+20070101+723120+A+1/healthclaims">
+                </_a>
+                <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718670+10+1+20070101+723120+A+1/features">
+                </_a>
+            </membershipsLinks>
+        </dependents>
+        <dependents>
+            <relationshipToSubscriber>S</relationshipToSubscriber>
+            <privacyRestriction>true</privacyRestriction>
+            <dateEnrolled>2007-01-01</dateEnrolled>
+            <dateTerminated>9999-12-31</dateTerminated>
+            <person>
+                <gender>M</gender>
+                <nameFirst>THURLOW</nameFirst>
+                <nameMiddle>
+                </nameMiddle>
+                <nameLast>RITCHEY</nameLast>
+                <nameTitle>0</nameTitle>
+                <namePrefix>
+                </namePrefix>
+                <nameSuffix>
+                </nameSuffix>
+                <nameFull>THURLOW RITCHEY</nameFull>
+                <dateOfBirth>1992-08-27</dateOfBirth>
+            </person>
+            <membershipsLinks>
+                <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718676+10+1+20070101+723120+A+1">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718676+10+1+20070101+723120+A+1/identificationcards">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718676+10+1+20070101+723120+A+1/servicebundles">
+                </_a>
+                <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718676+10+1+20070101+723120+A+1/healthclaims">
+                </_a>
+                <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718676+10+1+20070101+723120+A+1/features">
+                </_a>
+            </membershipsLinks>
+        </dependents>
+        <membershipsLinks>
+            <_a accessTokenType="USER" resource="memberships" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718657+10+1+20070101+723120+A+1">
+            </_a>
+            <_a accessTokenType="USER" resource="memberships.identificationcards" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718657+10+1+20070101+723120+A+1/identificationcards">
+            </_a>
+            <_a accessTokenType="USER" resource="memberships.servicebundles" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718657+10+1+20070101+723120+A+1/servicebundles">
+            </_a>
+            <_a accessTokenType="USER" resource="memberships.healthclaims" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718657+10+1+20070101+723120+A+1/healthclaims">
+            </_a>
+            <_a accessTokenType="USER" resource="membership.features" href="https://qal7gateway.aetna.com:8443/v1/memberships/5~260718657+10+1+20070101+723120+A+1/features">
+            </_a>
+        </membershipsLinks>
+    </memberDemographics>
+</GetDemographicRes>
