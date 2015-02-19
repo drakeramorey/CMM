@@ -1,0 +1,104 @@
+(: PLEASE DO NOT CHANGE THE CONTENTS OF THIS FILE :)
+
+(: ON THE FLY XML GENERATION. INCLUDES THE BOUND CASE :)
+
+xquery version "1.0-ml";
+
+
+declare default function namespace "http://www.w3.org/2005/xpath-functions";
+
+declare namespace xs = "http://www.w3.org/2001/XMLSchema";
+
+declare variable $uri as xs:string :="/DemographicRes";
+
+declare variable $schema := doc($uri)/node();
+
+declare function local:process-element($element as node(),$depth as xs:integer) {
+     typeswitch ($element)
+        
+        case  element(xs:schema)   return
+              for $sub-element in  $element/*
+                 return  local:process-element($sub-element,$depth)
+        
+        case element(xs:annotation) return
+              ()
+              
+        case element(xs:import) return
+              ()
+        
+        case  element(xs:element) return   
+                     let $max := 
+                     if ($element/@maxOccurs)
+                     then
+                         if ($element/@maxOccurs/string() = "unbounded") 
+                         then 4
+                         else ($element/@maxOccurs/string())
+                     else 1
+                     let $count := xs:integer($max)
+                     for $i in 1 to $count
+                     return(
+                      if(not(empty($element/@type)) and not(contains($element/@type/string(),'xsd')))
+                      then (
+                      try
+                      {
+                        let $el := subsequence(tokenize(xs:string($element/@type),":"),2,1)
+                        let $schemaLocation := //xs:import[@namespace=namespace-uri-for-prefix(subsequence(tokenize(xs:string($element/@type),":"),1,1),//*)]//@schemaLocation/string()        
+                        let $newSchema := doc(/$schemaLocation)//node()[@name=$el]
+                        return element {$element/@name}{local:process-element($newSchema,$depth)}
+                      }
+                      catch($exception){
+                        $exception
+                      })
+                      else
+                         if ($element/@ref)
+                         then
+                              local:process-element(root($element)/node()//xs:element[@name=$element/@ref/string()],$depth)
+                         else
+                         if (root($element)/node()/xs:complexType[@name=$element/@type/string()])
+                         then (
+                             element {$element/@name} {
+                                   local:process-element(root($element)/node()/xs:complexType[@name=$element/@type/string()],$depth)
+                             })
+                         else 
+                         (                                
+                         element {$element/@name} {
+                             if  ($element/*)
+                             then 
+                             for $sub-element in $element/*
+                                 return local:process-element($sub-element,$depth)
+                             else  ($element/@name/string())
+                             }))
+              
+        case element(xs:attribute)   return
+                 if ($element/@use="required" or empty($element/@use))
+                 then 
+                     (attribute {$element/@name} { $element/@name/string() })
+                 else () 
+                 
+        case element (xs:documentation) return ()
+         
+        case  element(xs:all)   return
+                 for $sub-element  in $element/*
+                 return local:process-element($sub-element,$depth)
+        
+        case  element(xs:sequence)   return
+                 for $sub-element in $element/*
+                       return local:process-element($sub-element,$depth)
+        
+        case  element(xs:complexType) return
+        if(not(empty($element/@name)) and $depth eq 0) then(
+        let $depth := $depth + 1
+        return element{$element/@name}{
+              for $sub-element in $element/*
+                       return local:process-element($sub-element,$depth)})
+                       else                       
+              (let $depth := $depth + 1
+              for $sub-element in $element/*
+                       return local:process-element($sub-element,$depth))
+                 
+       default return ("DEFAULT")
+};
+
+let $xml := local:process-element($schema,0)
+
+return $xml[1] (:xdmp:document-insert(concat(subsequence(tokenize($uri,"[.]"),1,1),".xml"),$xml):)
